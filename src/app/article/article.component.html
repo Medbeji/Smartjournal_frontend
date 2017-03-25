@@ -1,3 +1,9 @@
-<p>
-  article works!
-</p>
+
+<div class="container marketing">
+    <section id="blog-landing">
+      <article class="white-panel" *ngFor="let article of articles"> <img src="{{ article.Picture }}" alt="ALT">
+        <h1><a href="#">{{ article.ArticleId }}</a></h1>
+        <p>{{ article.Description }}</p>
+      </article>
+    </section>
+  </div>

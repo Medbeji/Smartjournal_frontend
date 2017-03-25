@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 import {FacebookService, FacebookInitParams} from 'ng2-facebook-sdk';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent
+    ArticleComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
