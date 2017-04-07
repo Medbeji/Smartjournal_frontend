@@ -6,19 +6,23 @@ import {FacebookService, FacebookInitParams} from 'ng2-facebook-sdk';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { DetailArticleComponent } from './detail-article/detail-article.component';
+import { AppRoutingModule } from './routes/app-routing.module';
+import { ArticleService } from './services/article.service';
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailArticleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+	AppRoutingModule
   ],
-  providers: [FacebookService],
+  providers: [FacebookService,ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
