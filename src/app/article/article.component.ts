@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '.././services/article.service';
 import {Router} from '@angular/router';
-import {Article} from './article';
+import {Article} from '../ModelBinding/article';
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -25,19 +25,14 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {
     this.getArticles();
   }
-  
- // goToDetail(): void {
-// 	console.log("clickkkkk");
-  
-// this.route.navigate(['/detail',"114547185987_10154284613010988"]);
-//  }
-  
+
   getArticles() {
-    console.log("Article from component");
+    console.log("Article from component Article");
     this.articles = [] ; 
     this.service.getArticles().subscribe(
       data => this.articles = data
     );
+    console.log(this.articles );
   }
 
 }

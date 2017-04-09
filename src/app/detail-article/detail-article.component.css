@@ -1,0 +1,23 @@
+img.img-thumbnail {
+    margin-left: auto;
+    margin-right: auto;
+height: 500px; width:900px;
+  display: block;
+  position:relative; top:-1300px; z-index:6 ;
+
+}
+h1,p {
+      margin-left: auto;
+    margin-right: auto;
+    width: 900px;  
+    text-align: center; position:relative; top:-1300px; z-index:6 ;
+    
+}
+img.img-rounded {
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+height:1000%; width: 1500px;
+  display: block;
+position:relative; top:300px; z-index:5 ; 
+}

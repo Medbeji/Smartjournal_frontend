@@ -6,6 +6,8 @@ __v:number;
     Link : string;
     ArticleId : string ;
     Likes: number;
+    name:string;
+    _journal:string;
 
         constructor(data) {
         Object.assign(this, data);

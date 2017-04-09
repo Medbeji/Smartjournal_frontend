@@ -1,12 +1,14 @@
-<p>
-  detail-article works!
-</p>
-<div class="container marketing">
-    <section id="blog-landing">
-      <article class="white-panel" [routerLink]="['/detail', article._id]" *ngIf="article"> <img src="{{ article.Picture }}" alt="ALT">
-        <h1><a [routerLink]="['/detail', article._id]">{{ article.ArticleId }}</a></h1>
-        <p>{{ article.Description }}</p>
+
+
+ 
+
+<div class="container">
+ <img  src="../assets/gris.png" class="img-rounded" alt="Cinque Terre"> 
+      <article [routerLink]="['/detail', article._id]" *ngIf="article"> 
+      <img  class="img-thumbnail" src="{{ article.Picture }}" alt="ALT">
+    
+        <h1 ><a [routerLink]="['/detail', article._id]">{{ article.name }}</a></h1>
+        <p >{{ article.Description }}</p>
       </article>
-    </section>
-  </div>
-<a routerLink="/article">Back to List</a>
+
+<a style="position:relative; top:-1800px; z-index:6 ;" routerLink="/article">Back to List</a>

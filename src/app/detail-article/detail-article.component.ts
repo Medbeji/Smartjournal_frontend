@@ -1,6 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { ArticleService } from '../services/article.service';
-import {Article} from '../article/article';
+import {Article} from '../ModelBinding/article';
 import {ActivatedRoute,Params,Router} from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
@@ -15,15 +15,14 @@ export class DetailArticleComponent implements OnInit {
 
  article:Article;
   constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router) 
-  { 
-}
+  { }
 
   ngOnInit() :void {
-  console.log("hello from detail");
+  console.log("detail from datil componeent");
   //  console.log('ArticleId');
 this.route.params.switchMap((params:Params) => this.service.getArticle(params['_id']))
       .subscribe((article : Article)=>this.article = article);
-	  console.log(this.article);
+
   
   }
 
