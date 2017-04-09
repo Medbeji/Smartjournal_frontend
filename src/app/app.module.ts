@@ -20,6 +20,7 @@ import { AuthGuard } from './_guards/index';
 import { BaseRequestOptions } from '@angular/http';
 import { AuthenticationService } from './services/authentication.service';
 import { ArticleByJournalComponent } from './article-by-journal/article-by-journal.component';
+import { ArticleByCategorieComponent } from './article-by-categorie/article-by-categorie.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ArticleByJournalComponent } from './article-by-journal/article-by-journ
 
     HomeComponent,
     LoginComponent,
-    ArticleByJournalComponent
+    ArticleByJournalComponent,
+    ArticleByCategorieComponent
   ],
   imports: [
     BrowserModule,

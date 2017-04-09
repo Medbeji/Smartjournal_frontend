@@ -25,6 +25,14 @@ export class ArticleService {
 }
 
 
+	getArticleByCategorie(ArticleId : string)
+	{
+	const url=`${this.articlebyjournal}/${ArticleId}/article`;
+	console.log(url);
+	 return this.http.get(url).map(res => res.json());
+	}
+
+
 	getArticleByJournal(ArticleId : string)
 	{
 	const url=`${this.articlebyjournal}/${ArticleId}/article`;

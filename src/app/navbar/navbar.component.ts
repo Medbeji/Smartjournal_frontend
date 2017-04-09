@@ -23,6 +23,9 @@ export class NavbarComponent implements OnInit {
  onSelect(journal) {
         this.selectedJournalId = journal._id;
     }
+    onSelectC(categorie) {
+        this.selectedJournalId = categorie._id;
+    }
   ngOnInit() {
     this.getCategories();
     this.getJournaux();
