@@ -21,6 +21,8 @@ import { BaseRequestOptions } from '@angular/http';
 import { AuthenticationService } from './services/authentication.service';
 import { ArticleByJournalComponent } from './article-by-journal/article-by-journal.component';
 import { ArticleByCategorieComponent } from './article-by-categorie/article-by-categorie.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ArticleByCategorieComponent } from './article-by-categorie/article-by-c
     HomeComponent,
     LoginComponent,
     ArticleByJournalComponent,
-    ArticleByCategorieComponent
+    ArticleByCategorieComponent,
+    LoginFormComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

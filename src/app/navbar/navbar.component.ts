@@ -13,9 +13,8 @@ export class NavbarComponent implements OnInit {
 
   categories: any;
   journals: any;
-  constructor(private service: NavbarService,private route: Router) { 
-    this.service = service;
-    this.route = route;
+  constructor(private service: NavbarService,private route: Router, private ARoute:ActivatedRoute) { 
+
   }
   
  selectedJournalId: string = null;
@@ -29,6 +28,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.getCategories();
     this.getJournaux();
+        console.log(this.ARoute.url);
  }
 
   getJournaux() {
@@ -46,6 +46,10 @@ export class NavbarComponent implements OnInit {
     this.service.getCategories().subscribe(
       data => this.categories = data
     );
+  }
+
+  isActive() {
+    console.log(this.ARoute.url);
   }
 
 }
