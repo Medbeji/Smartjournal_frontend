@@ -9,6 +9,8 @@
     
         <h1 ><a [routerLink]="['/article', article._id]">{{ article.name }}</a></h1>
         <p >{{ article.Description }}</p>
-      </article>
+      
 
-<a style="position:relative; top:-1800px; z-index:6 ;" routerLink="/article">Back to List</a>
+<a style="position:relative; top:1000%; margin-left: 8%; z-index:6 ;" routerLink="/article">Back to List</a>
+<a style="position:relative; top:1000%; margin-left: 85%; z-index:6 ;"  target="_blank" href="{{ article.Link}}">View Article</a>
+</article>

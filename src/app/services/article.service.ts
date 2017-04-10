@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import 'rxjs/Rx'
 import 'rxjs/add/operator/toPromise';;
 import {Article} from '../ModelBinding/article';
-
+import {Journal} from '../ModelBinding/journal';
 @Injectable()
 export class ArticleService {
   endpoint_url:string="http://smartjournal.herokuapp.com/api/article";
@@ -12,6 +12,16 @@ export class ArticleService {
     this.http = http
    }
    
+  getjournalByArticle(_journal:string) :Promise<Journal>
+	{	const url=`${this.articlebyjournal}/${_journal}`;
+	return this.http.
+	get(url).
+	toPromise().
+	then(response => response.json()).
+   then(journal => new Journal(journal)).
+	catch(this.handleError);
+	}
+
     getArticle(ArticleId : string):Promise<Article>
 	{
 	const url=`${this.endpoint_url}/${ArticleId}`;
@@ -20,9 +30,9 @@ export class ArticleService {
 	get(url).
 	toPromise().
 	then(response => response.json()).
- then(article => new Article(article)).
+   then(article => new Article(article)).
 	catch(this.handleError);
-}
+  }
 
 
 	getArticleByCategorie(ArticleId : string)
