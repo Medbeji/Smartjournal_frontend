@@ -24,6 +24,6 @@ articles:any;
 
     this.route.params.switchMap((params:Params) => this.service.getArticleByCategorie(params['_id']))
       .subscribe(data => this.articles = data);
-    console.log(this.articles );
+
   }
 }

@@ -8,6 +8,7 @@ import {Journal} from '../ModelBinding/journal';
 export class ArticleService {
   endpoint_url:string="http://smartjournal.herokuapp.com/api/article";
    articlebyjournal:string="https://smartjournal.herokuapp.com/api/journal";
+	 journal_url:string="https://smartjournal.herokuapp.com/api/categorie";
   constructor(private http:Http) {
     this.http = http
    }
@@ -37,7 +38,7 @@ export class ArticleService {
 
 	getArticleByCategorie(ArticleId : string)
 	{
-	const url=`${this.articlebyjournal}/${ArticleId}/article`;
+	const url=`${this.journal_url}/${ArticleId}/article`;
 	console.log(url);
 	 return this.http.get(url).map(res => res.json());
 	}

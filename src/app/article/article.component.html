@@ -2,7 +2,7 @@
 
 <div style="position:relative;  margin-top:15% ; z-index:4 ; " class="container marketing">
     <section id="blog-landing">
-      <article class="white-panel" (click)="onSelect(article)" [routerLink]="['/detail', article._id]" *ngFor="let article of articles"> <img src="{{ article.Picture }}" alt="ALT">
+      <article class="white-panel" (click)="onSelect(article)" [routerLink]="['/article/detail', article._id]" *ngFor="let article of articles"> <img src="{{ article.Picture }}" alt="ALT">
         <h1><a href="#">{{ article.name }}</a></h1>
         <p>{{ article.Description }}</p>
       </article>

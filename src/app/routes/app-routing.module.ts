@@ -13,8 +13,8 @@ import { ArticleByCategorieComponent}   from '../article-by-categorie/article-by
 const routes: Routes = [
   { path: '', redirectTo: '/article', pathMatch: 'full' },
   { path: 'article',  component: ArticleComponent },
-  { path: 'detail/:_id', component: DetailArticleComponent },
- { path: 'article/:_id', component: ArticleByJournalComponent },
+  { path: 'article/detail/:_id', component: DetailArticleComponent },
+ { path: 'article/journal/:_id', component: ArticleByJournalComponent },
  { path: 'article/categorie/:_id', component: ArticleByCategorieComponent },
  { path: 'login', component: LoginFormComponent },
  { path: 'login/admin', component: AdminComponent },
