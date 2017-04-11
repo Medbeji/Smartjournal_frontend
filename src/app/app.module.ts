@@ -11,14 +11,8 @@ import { AppRoutingModule } from './routes/app-routing.module';
 import { ArticleService } from './services/article.service';
 import { NavbarService } from './services/navbar.service';
 
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { UserService } from './services/user.service';
- import { fakeBackendProvider } from './_helpers/index';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { AuthGuard } from './_guards/index';
 import { BaseRequestOptions } from '@angular/http';
-import { AuthenticationService } from './services/authentication.service';
 import { ArticleByJournalComponent } from './article-by-journal/article-by-journal.component';
 import { ArticleByCategorieComponent } from './article-by-categorie/article-by-categorie.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -30,9 +24,6 @@ import { AdminComponent } from './admin/admin.component';
     ArticleComponent,
     NavbarComponent,
     DetailArticleComponent,
-
-    HomeComponent,
-    LoginComponent,
     ArticleByJournalComponent,
     ArticleByCategorieComponent,
     LoginFormComponent,
@@ -44,9 +35,7 @@ import { AdminComponent } from './admin/admin.component';
     HttpModule,
 	AppRoutingModule
   ],
-  providers: [FacebookService,ArticleService,NavbarService,AuthenticationService, UserService,MockBackend, AuthGuard, BaseRequestOptions
-  //,fakeBackendProvider
-  ],
+  providers: [FacebookService,ArticleService,NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
