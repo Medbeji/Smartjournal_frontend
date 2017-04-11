@@ -4,21 +4,26 @@ import {ActivatedRoute,Params,Router,NavigationEnd} from '@angular/router';
  import 'rxjs/add/operator/first';
 import {Categorie} from '../ModelBinding/categorie';
 import {Journal} from '../ModelBinding/journal';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+ selectedJournalId: string = null;
+    private sub: boolean;
   categories: any;
   journals: any;
-  constructor(private service: NavbarService,private route: Router, private ARoute:ActivatedRoute) { 
-
+  constructor(location: Location, private service: NavbarService,private route: Router, private ARoute:ActivatedRoute) { 
+ route.events.subscribe((val) => {
+      if(location.path() != '/login'){
+        this.sub ==true;
+      }  else  this.sub ==false;
+    });
+  
   }
   
- selectedJournalId: string = null;
- 
  onSelect(journal) {
         this.selectedJournalId = journal._id;
     }
@@ -28,8 +33,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.getCategories();
     this.getJournaux();
-        console.log(this.ARoute.url);
- }
+    
+  }
 
   getJournaux() {
     console.log("journal from component navbar");
@@ -39,7 +44,6 @@ export class NavbarComponent implements OnInit {
     );
   }
 
-
   getCategories() {
     console.log("categorie from component navbar");
     this.categories = [] ; 
@@ -48,9 +52,8 @@ export class NavbarComponent implements OnInit {
     );
   }
 
-  isActive() {
-    console.log(this.ARoute.url);
+  isActive():boolean {
+   return(this.sub);
   }
-
 }
 

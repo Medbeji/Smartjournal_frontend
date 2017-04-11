@@ -19,7 +19,7 @@ formSubmit()
   console.log(key);
 if (uname =="test" && pass=="test")
 {
-  this.router.navigate(['/login/admin']);
+  this.router.navigate(['/admin']);
 }
 }
 

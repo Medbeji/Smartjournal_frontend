@@ -8,17 +8,25 @@ import { LoginFormComponent } from '../login-form/login-form.component';
 import { ArticleByCategorieComponent}   from '../article-by-categorie/article-by-categorie.component';
 const routes: Routes = [
   { path: '', redirectTo: 'article', pathMatch: 'full' },
-  { path: 'article',  component: ArticleComponent
-  ,children: [
-    { path: 'detail/:_id', component: DetailArticleComponent } ]
+  { path: 'article',  
+          children: [
+              { path: '', component: ArticleComponent },
+              { path: 'detail/:_id', component: DetailArticleComponent },
+               { path: 'journal/:_id', component: ArticleByJournalComponent },
+               { path: 'categorie/:_id', component: ArticleByCategorieComponent }, ]
   },
 
-
-  //{ path: 'article/detail/:_id', component: DetailArticleComponent },
- { path: 'article/journal/:_id', component: ArticleByJournalComponent },
- { path: 'article/categorie/:_id', component: ArticleByCategorieComponent },
- { path: 'login', component: LoginFormComponent },
- { path: 'login/admin', component: AdminComponent },
+ { path: 'login',
+          children: [
+               { path: '', component: LoginFormComponent } ,
+                { path: 'admin', component: AdminComponent } 
+                     ]
+  },    
+ 
+   //{ path: 'article/detail/:_id', component: DetailArticleComponent },
+// { path: 'article/journal/:_id', component: ArticleByJournalComponent },
+ //{ path: 'article/categorie/:_id', component: ArticleByCategorieComponent },
+ //{ path: 'login/admin', component: AdminComponent },
 
 ];
 @NgModule({
