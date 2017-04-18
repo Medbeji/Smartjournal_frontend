@@ -1,12 +1,6 @@
-
-
-
 <div  style="position:relative;  margin-top:15% ; z-index:4 ; ">
 <div   class="container marketing">
     <section id="blog-landing" *ngFor="let article of articles">
-
-
-      
       <div class="white-panel" (click)="onSelect(article)" [routerLink]="['/detail', article._id]" > <img src="{{ article.Picture }}" alt="ALT">
         <h1><a href="#">{{ article.name }}</a></h1>
         <p>{{ article.Description }}</p>
@@ -14,4 +8,3 @@
     </section>
   </div>
 </div>
-  

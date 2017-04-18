@@ -13,22 +13,30 @@ export class ArticleComponent implements OnInit {
 
   articles: any;
   selectedArticleId: string = null;
- 
+
  onSelect(artcle) {
         this.selectedArticleId = artcle.ArticleId;
     }
-  constructor(private service: ArticleService,private route: Router) { 
+  constructor(private service: ArticleService,private route: Router) {
     this.service = service;
     this.route = route;
   }
 
+  sleep(seconds)
+  {
+    var e = new Date().getTime() + (seconds * 1000);
+    while (new Date().getTime() <= e) {}
+  }
+
   ngOnInit() {
-    this.getArticles();
+
+          this.getArticles();
+
   }
 
   getArticles() {
     console.log("Article from component Article");
-    this.articles = [] ; 
+    this.articles = [] ;
     this.service.getArticles().subscribe(
       data => this.articles = data
     );

@@ -12,7 +12,7 @@ export class ArticleService {
   constructor(private http:Http) {
     this.http = http
    }
-   
+
   getjournalByArticle(_journal:string) :Promise<Journal>
 	{	const url=`${this.articlebyjournal}/${_journal}`;
 	return this.http.
@@ -51,17 +51,17 @@ export class ArticleService {
 	 return this.http.get(url).map(res => res.json());
 	}
 
-	private handleError(error: any): Promise<any> 
+	private handleError(error: any): Promise<any>
 	{
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
-  
+
 
   getArticles()
   {
     console.log("Message from service article");
     return this.http.get(this.endpoint_url).map(res => res.json());
-    
+
   }
 }
