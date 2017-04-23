@@ -17,6 +17,8 @@ import { ArticleByJournalComponent } from './article-by-journal/article-by-journ
 import { ArticleByCategorieComponent } from './article-by-categorie/article-by-categorie.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AdminComponent } from './admin/admin.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { AdminComponent } from './admin/admin.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-	AppRoutingModule
+	AppRoutingModule,
+  InfiniteScrollModule
   ],
   providers: [FacebookService,ArticleService,NavbarService],
   bootstrap: [AppComponent]

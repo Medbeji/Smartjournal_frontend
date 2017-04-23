@@ -34,6 +34,18 @@ export class ArticleComponent implements OnInit {
 
   }
 
+  onScroll(){
+    console.log("scroll!!");
+  }
+
+onScrollDown(){
+  console.log("scrollleeeedd down");
+
+}
+  onModalScrollDown(){
+    console.log("scrollleeeedd");
+  }
+
   getArticles() {
     console.log("Article from component Article");
     this.articles = [] ;

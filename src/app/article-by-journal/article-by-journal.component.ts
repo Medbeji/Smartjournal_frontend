@@ -1,4 +1,5 @@
-import { Component, OnInit, AfterViewInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { ArticleService } from '../services/article.service';
 import {ActivatedRoute,Params,Router} from '@angular/router';
 declare var $:any;
@@ -8,9 +9,9 @@ declare var $:any;
   templateUrl: './article-by-journal.component.html',
   styleUrls: ['./article-by-journal.component.css']
 })
-export class ArticleByJournalComponent implements OnInit {
+export class ArticleByJournalComponent implements OnInit  {
   articles:any;
-  constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router)
+  constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router, private elRef: ElementRef)
   {
 
   }
@@ -27,20 +28,7 @@ export class ArticleByJournalComponent implements OnInit {
     console.log(this.articles );
   }
 
-  ngAfterViewInit() {
-    // Your jQuery code goes here
-   $(document).ready(function() {
-        $('#blog-landing').pinterest_grid({
-          no_columns: 4,
-          padding_x: 10,
-          padding_y: 10,
-          margin_bottom: 50,
-          single_column_breakpoint: 700
-        });
 
-      });
-
-  }
 
 
 }

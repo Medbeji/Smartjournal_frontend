@@ -1,10 +1,63 @@
 
 
-<div style="position:relative;  margin-top:15% ; z-index:4 ; " class="container marketing">
-    <section id="blog-landing">
-      <article class="white-panel" (click)="onSelect(article)" [routerLink]="['detail', article._id]" *ngFor="let article of articles"> <img src="{{ article.Picture }}" alt="ALT">
-        <h1><a href="#">{{ article.name }}</a></h1>
-        <p>{{ article.Description }}</p>
-      </article>
-    </section>
-</div>
+<!-- <div style="position:relative;  margin-top:15% ; z-index:4 ; " class="container marketing">
+<section id="blog-landing">
+<article class="white-panel" (click)="onSelect(article)" [routerLink]="['detail', article._id]" *ngFor="let article of articles"> <img src="{{ article.Picture }}" alt="ALT">
+<h1><a href="#">{{ article.name }}</a></h1>
+<p>{{ article.Description }}</p>
+</article>
+</section>
+</div> -->
+<!--
+<div style="position:relative;  margin-top:20% ; z-index:4 ; " class="container marketing">
+               <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let article of articles">
+                              <div class="card card-inverse card-info" >
+                                             <img class="card-img-top" src="{{ article.Picture }}">
+                                             <div class="card-block">
+                                                            <figure class="profile profile-inline">
+                                                                           <img src="http://success-at-work.com/wp-content/uploads/2015/04/free-stock-photos.gif" class="profile-avatar" alt="">
+                                                            </figure>
+                                                            <h4 class="card-title">{{ article.name}}</h4>
+                                                            <div class="card-text">
+                                                                           Tawshif is a web designer living in Bangladesh.
+                                                            </div>
+                                             </div>
+                                             <div class="card-footer">
+                                                            <small>Last updated 3 mins ago</small>
+                                                            <button class="btn btn-info float-right btn-sm">Follow</button>
+                                             </div>
+
+                              </div>
+               </div>
+</div> -->
+
+      <div style="position:relative;  margin-top:20% ; z-index:4 ; " class="container marketing">
+            <div class="search-results"
+		    infiniteScroll
+		    [infiniteScrollDistance]="2"
+		    [infiniteScrollThrottle]="300"
+		    (scrolled)="onScroll()">
+
+            <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let article of articles" >
+                <div class="card card-inverse card-info">
+                    <img class="card-img-top" src="{{ article.Picture}}">
+                    <div class="card-block">
+                        <figure class="profile">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAn1BMVEXqAADrAADSAADpAADkAADnAADhAADYAADUAADVAADdAADeAADaAADsCAjkhITpeHjoNDThR0fmrq7qyMjntbXqwsLqZWXuLy/oior9/f3rl5fjVFTuW1vvRETgPT3jLS3uODjlmZnnj4/w4eHsfn7srKzsLy/0vb3sISHjZ2fcLS3kERHgOzviISHy7e3z3NzmUlLdb2/qc3Pro6PqkZGMLwsbAAACTElEQVQ4jaVVa5OiMBCcbAIoEMJbBBWRh7Lo6cL+/992CQ9F10Wvrj9kyqq26QwzDXzoRFaV+SQUXSPaDHSizT9eYsYFgchCUpkGZ6gSSKquq5o8DU3VVaEqy0R6ASJYwIuEMUwDCzZIVyIChNqDF3G2P7sCmJP58Uqy032P1pOHB/cWoLUAjwZaT1c3PQddrT5Su1u8h3+hAhp5Hf753MD/AqHnGj+bhS7+ZjBDD8WoA6NmdVbp0bqs6qikKAkcO6X0MG4WpZW5uZhGmHuOk/rMYaxxgeb73PWq3ZdV9U+xndRxkyY4BwHzo2x3rssErbMcFYYTRZ8RM+qia9Yhib9PoYupHdh54/q+913mRshS7+x7dmLF8amSumatS8u3mGfVgdF4teO4rIyDZFOdKk0M87gD5aY0IysJWLwxT+R0jMqvkhmbz6q/8OjecrsIGKjph17qGlHM5cTEP1L7q5ls/2d53lkVwbBeLIY3Srew2I4mi1phulwuc0vjSqhY7A+r7QqgsAAdQsCrQ7HCrTA1BG/ZxFJr3S9OdtXYObWthl7inWmbod3QrgOyWdv7o9QPNGMsyXzDyXIW4nDtBYmxyjw6eAVM4G7MwWftfdbhWhQ/g26NxuMC190aJvhW0JU6DDEa9g49bdZ4DWFiDW/UXzZv2OPeCrrz2kvDqIiEgTtVuJkdlZaHcfuyHww8xlubWdItCn9vlkhNiUdxN1eTEFlMgGg83skLiIjnqa0pCv8aTELXOYeATPTZG5hrBOacO5+9+GrNFM76C92gLYuF6Mp/AAAAAElFTkSuQmCC" class="profile-avatar" alt="">
+                        </figure>
+                        <h4 class="card-title mt-3">{{ article.name }}</h4>
+                        <!-- <div class="meta card-text">
+                            <a>Friends</a>
+                        </div> -->
+                         <div class="card-text">
+                            {{ article.Description }}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small>Last updated 3 mins ago</small>
+                        <button class="btn btn-info float-right btn-sm rightPosition" (click)="onSelect(article)" [routerLink]="['detail', article._id]">Read</button>
+                    </div>
+                </div>
+            </div>
+      </div>
+       </div>
