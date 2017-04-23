@@ -62,6 +62,11 @@ export class ArticleService {
   {
     console.log("Message from service article");
     return this.http.get(this.endpoint_url).map(res => res.json());
-
   }
+
+	getArticleBlock(start,end){
+		console.log("Hello from "+start+" To "+end);
+		return this.http.get(this.endpoint_url+"?limit="+end).map(res => res.json());
+	}
+
 }

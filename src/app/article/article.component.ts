@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild } from '@angular/core';
 import { ArticleService } from '.././services/article.service';
 import {Router} from '@angular/router';
 import {Article} from '../ModelBinding/article';
@@ -13,7 +13,8 @@ export class ArticleComponent implements OnInit {
 
   articles: any;
   selectedArticleId: string = null;
-
+  start = 10 ;
+  end = 20;
  onSelect(artcle) {
         this.selectedArticleId = artcle.ArticleId;
     }
@@ -36,15 +37,17 @@ export class ArticleComponent implements OnInit {
 
   onScroll(){
     console.log("scroll!!");
+
+    this.service.getArticleBlock(this.start,this.end).subscribe(
+      data => {
+            this.articles = data
+            this.start = this.start + 10 ;
+            this.end = this.end  + 10 ;
+      }
+    )
+
   }
 
-onScrollDown(){
-  console.log("scrollleeeedd down");
-
-}
-  onModalScrollDown(){
-    console.log("scrollleeeedd");
-  }
 
   getArticles() {
     console.log("Article from component Article");
@@ -52,7 +55,7 @@ onScrollDown(){
     this.service.getArticles().subscribe(
       data => this.articles = data
     );
-    console.log(this.articles );
+
   }
 
 }
