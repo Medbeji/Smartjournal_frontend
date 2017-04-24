@@ -13,16 +13,16 @@ export class LoginFormComponent implements OnInit {
   //     data : any = {};
   //     formSubmit()
   // {
-  //   var uname = this.data.username;
-  //   var pass = this.data.password;
-  //   var key =btoa(btoa(uname)+"??"+btoa(pass));
-  //   //Cookie.set('SessionId',key);
-  //   document.cookie ="sessionID =" + key;
-  //   console.log(key);
-  //   if (uname =="test" && pass=="test")
-  //   {
-  //     this.router.navigate(['/admin']);
-  //   }
+    // var uname = this.data.username;
+    // var pass = this.data.password;
+    // var key =btoa(btoa(uname)+"??"+btoa(pass));
+    // //Cookie.set('SessionId',key);
+    // document.cookie ="sessionID =" + key;
+    // console.log(key);
+    // if (uname =="test" && pass=="test")
+    // {
+    //   this.router.navigate(['/admin']);
+    // }
   // }
   //
   //
@@ -30,12 +30,25 @@ export class LoginFormComponent implements OnInit {
   //
   // ngOnInit() {
   // }
+
+  constructor(private router: Router) { }
+
   @Input() username: string;
   @Input() password: string;
 
   login(){
     console.log(this.username);
     console.log(this.password);
+    var uname = this.username;
+    var pass = this.password;
+    var key =btoa(btoa(uname)+"??"+btoa(pass));
+    //Cookie.set('SessionId',key);
+    document.cookie ="sessionID =" + key;
+    console.log(key);
+    if (uname =="test" && pass=="test")
+    {
+      this.router.navigate(['/login/admin']);
+    }
   }
 
   OnInit(){
