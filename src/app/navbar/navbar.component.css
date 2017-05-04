@@ -2,7 +2,8 @@ body{
     background: #8999A8;
 }
 .navbar, .dropdown-menu{
-background:#5bc0de;
+/*background:#06407D;*/
+background-color: rgba(6, 64, 125, 0.75);
 border: none;
 
 }
