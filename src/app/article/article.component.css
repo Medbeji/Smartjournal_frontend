@@ -121,3 +121,25 @@ h5 {
     float:right;
     margin:-5px 0px 0px 0px;
 }
+
+section.border {
+    margin-left: 11% ;
+}
+
+section.border button {
+  color: #6496c8;
+  background: rgba(0,0,0,0);
+  border: solid 2px #6496c8;
+  height: 50px ;
+  width: 130px;
+}
+section.border button:hover,
+section.border button.hover {
+  border-color: #346392;
+  color: #346392;
+}
+section.border button:active,
+section.border button.active {
+  border-color: #27496d;
+  color: #27496d;
+}
