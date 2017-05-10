@@ -47,3 +47,18 @@ border: none;
 .nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
   border-bottom: #62C2E4 3px solid;
 }
+
+.btn-search {
+	background-color: #666;
+    color: #fff;
+    border-radius:0;
+    border-color:#666;
+}
+
+.input-search {
+	border-radius:0;
+    background-color: #eee;
+    box-shadow: none;
+    border: none;
+  	border-right: 1px solid #eee;
+}
