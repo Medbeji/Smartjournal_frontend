@@ -15,12 +15,16 @@ export class ArticleComponent implements OnInit {
   selectedArticleId: string = null;
   start = 10 ;
   end = 20;
+  isRecentArticles: boolean;
+  numberOfScrolls = 0;
+
  onSelect(artcle) {
         this.selectedArticleId = artcle.ArticleId;
     }
   constructor(private service: ArticleService,private route: Router) {
     this.service = service;
     this.route = route;
+    this.isRecentArticles = true ;
   }
 
   sleep(seconds)
@@ -36,16 +40,18 @@ export class ArticleComponent implements OnInit {
   }
 
   onScroll(){
-    console.log("scroll!!");
+    console.log("number of scrolls"+this.numberOfScrolls);
 
-    this.service.getArticleBlock(this.start,this.end).subscribe(
-      data => {
-            this.articles = data
-            this.start = this.start + 10 ;
-            this.end = this.end  + 10 ;
-      }
-    )
-
+    if (this.numberOfScrolls % 50 == 0) {
+      this.service.getArticleBlock(this.start,this.end).subscribe(
+        data => {
+              this.articles = data
+              this.start = this.start + 20 ;
+              this.end = this.end  + 20 ;
+        }
+      )
+    }
+    this.numberOfScrolls = this.numberOfScrolls + 10 ;
   }
 
 
@@ -57,5 +63,12 @@ export class ArticleComponent implements OnInit {
     );
 
   }
+
+
+  // this will switch between recent and top and reciproquement
+  switchArticles(){
+
+  }
+
 
 }
