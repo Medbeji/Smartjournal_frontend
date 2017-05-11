@@ -27,4 +27,6 @@ export class ArticleByJournalComponent implements OnInit  {
     console.log(this.articles );
   }
 
+
+
 }

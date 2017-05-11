@@ -37,58 +37,28 @@
         <div class="related-articles">
           <h2 style="text-align: center;">Related Articles</h2>
           <br>
-          <div class="card hovercard">
-            <img src="http://placehold.it/300x200/000000/&text=Header" alt=""/>
-            <div class="avatar">
-              <img src="http://placehold.it/80X80/333333/&text=Head" alt="" />
-            </div>
-            <div class="info">
-              <div class="title">
-                The Title
+          <div class="allSimilarArticles" *ngFor="let similarArticle of similarArticles">
+            <div class="card hovercard">
+              <img src="{{similarArticle.Picture}}" alt=""/>
+              <div class="avatar">
+                <img src="{{similarArticle._journal.picture}}" alt="" />
               </div>
-              <div class="desc">Lorem ipsum</div>
-              <div class="desc">Lorem ipsum</div>
-              <div class="desc">Lorem ipsum</div>
-            </div>
-            <div class="bottom">
-              <button class="btn btn-default">Button</button>
-            </div>
-          </div>
-          <br>
-          <div class="card hovercard">
-            <img src="http://placehold.it/300x200/000000/&text=Header" alt=""/>
-            <div class="avatar">
-              <img src="http://placehold.it/80X80/333333/&text=Head" alt="" />
-            </div>
-            <div class="info">
-              <div class="title">
-                The Title
+              <div class="info">
+                <div class="title">
+                   {{ similarArticle.name }}
+                </div>
+                <div class="desc">{{ similarArticle.Description }}</div>
+                <!-- <div class="desc">Lorem ipsum</div>
+                <div class="desc">Lorem ipsum</div> -->
               </div>
-              <div class="desc">Lorem ipsum</div>
-              <div class="desc">Lorem ipsum</div>
-              <div class="desc">Lorem ipsum</div>
-            </div>
-            <div class="bottom">
-              <button class="btn btn-default">Button</button>
-            </div>
-          </div>
-          <div class="card hovercard">
-            <img src="http://placehold.it/300x200/000000/&text=Header" alt=""/>
-            <div class="avatar">
-              <img src="http://placehold.it/80X80/333333/&text=Head" alt="" />
-            </div>
-            <div class="info">
-              <div class="title">
-                The Title
+              <div class="bottom">
+                <button class="btn btn-default" (click)="onSelect(similarArticle)" [routerLink]="['detail', similarArticle._id]"> See Article</button>
               </div>
-              <div class="desc">Lorem ipsum</div>
-              <div class="desc">Lorem ipsum</div>
-              <div class="desc">Lorem ipsum</div>
             </div>
-            <div class="bottom">
-              <button class="btn btn-default">Button</button>
-            </div>
-          </div>
+            <br>
+        </div>
+
+
         </div>
       </div>
     </div>

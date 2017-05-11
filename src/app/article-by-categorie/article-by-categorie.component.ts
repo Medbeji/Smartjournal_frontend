@@ -9,18 +9,18 @@ import {ActivatedRoute,Params,Router} from '@angular/router';
 })
 export class ArticleByCategorieComponent implements OnInit {
 articles:any;
-  constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router) 
+  constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router)
   { }
 
   ngOnInit() {
   this.getArticles();
-  
+
   }
 
    getArticles() {
     console.log("Article from component ArticleByCategori");
-    this.articles = [] ; 
-  
+    this.articles = [] ;
+
 
     this.route.params.switchMap((params:Params) => this.service.getArticleByCategorie(params['_id']))
       .subscribe(data => this.articles = data);
