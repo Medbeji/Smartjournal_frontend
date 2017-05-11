@@ -42,9 +42,7 @@ export class ArticleComponent implements OnInit {
 
   onScroll(){
     console.log("number of scrolls"+this.numberOfScrolls);
-
     if (this.numberOfScrolls % 50 == 0) {
-
       if ( this.isRecentArticles == false) {
         this.service.getTopArticleBlock(this.start,this.end).subscribe(
           data => {
@@ -92,8 +90,10 @@ export class ArticleComponent implements OnInit {
     this.isRecentArticles = true ;
     this.start = 10 ;
     this.end = 20;
+    this.numberOfScrolls = 0 ; 
   }
   clear(){
+    this.numberOfScrolls = 0
     this.isRecentArticles = false ;
     this.articlesbydate= [];
     this.start = 10 ;
