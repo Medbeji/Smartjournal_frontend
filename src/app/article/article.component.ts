@@ -10,7 +10,7 @@ import {Article} from '../ModelBinding/article';
 })
 
 export class ArticleComponent implements OnInit {
-articlesbydate:any;
+  articlesbydate:any;
   articles: any;
   selectedArticleId: string = null;
   start = 10 ;
@@ -18,13 +18,13 @@ articlesbydate:any;
   isRecentArticles: boolean;
   numberOfScrolls = 0;
 
- onSelect(artcle) {
-        this.selectedArticleId = artcle.ArticleId;
-    }
+  onSelect(artcle) {
+    this.selectedArticleId = artcle.ArticleId;
+  }
   constructor(private service: ArticleService,private route: Router) {
     this.service = service;
     this.route = route;
-    this.isRecentArticles = true ;
+    this.isRecentArticles = false ;
   }
 
   sleep(seconds)
@@ -35,7 +35,7 @@ articlesbydate:any;
 
   ngOnInit() {
 
-          this.getArticles();
+    this.getArticles();
 
   }
 
@@ -44,13 +44,24 @@ articlesbydate:any;
     console.log("number of scrolls"+this.numberOfScrolls);
 
     if (this.numberOfScrolls % 50 == 0) {
-      this.service.getArticleBlock(this.start,this.end).subscribe(
-        data => {
-              this.articles = data
-              this.start = this.start + 20 ;
-              this.end = this.end  + 20 ;
-        }
-      )
+
+      if ( this.isRecentArticles == false) {
+        this.service.getTopArticleBlock(this.start,this.end).subscribe(
+          data => {
+            this.articles = data
+            this.start = this.start + 20 ;
+            this.end = this.end  + 20 ;
+          }
+        )
+      } else {
+        this.service.getRecentArticleBlock(this.start,this.end).subscribe(
+          data => {
+            this.articlesbydate = data
+            this.start = this.start + 20 ;
+            this.end = this.end  + 20 ;
+          }
+        )
+      }
     }
     this.numberOfScrolls = this.numberOfScrolls + 10 ;
   }
@@ -65,23 +76,28 @@ articlesbydate:any;
 
   }
 
-getArticlesByDate() {
+  getArticlesByDate() {
     console.log("Article from component Article");
     this.articles = [] ;
     this.service.getArticlesByDate().subscribe(
       data => this.articlesbydate = data
     );
-
   }
 
   // this will switch between recent and top and reciproquement
   switch(){
-  this.service.getArticlesByDate().subscribe(
+    this.service.getArticlesByDate().subscribe(
       data => this.articlesbydate = data
     );
+    this.isRecentArticles = true ;
+    this.start = 10 ;
+    this.end = 20;
   }
- clear(){
- this.articlesbydate= [];
+  clear(){
+    this.isRecentArticles = false ;
+    this.articlesbydate= [];
+    this.start = 10 ;
+    this.end = 20;
   }
 
 

@@ -80,9 +80,15 @@ getArticlesByDate()
   return this.http.get(this.articleBydate_url).map(res => res.json());
 }
 
-getArticleBlock(start,end){
+getTopArticleBlock(start,end){
   console.log("Hello from "+start+" To "+end);
   return this.http.get(this.endpoint_url+"?limit="+end).map(res => res.json());
 }
+
+getRecentArticleBlock(start,end){
+  console.log("Hello from "+start+" To "+end);
+  return this.http.get(this.articleBydate_url+"?limit="+end).map(res => res.json());
+}
+
 
 }
