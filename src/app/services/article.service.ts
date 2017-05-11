@@ -48,6 +48,12 @@ getArticleByCategorie(ArticleId : string)
   return this.http.get(url).map(res => res.json());
 }
 
+getPartialArticleByCategorie(ArticleId: string, start,end){
+  const url=`${this.journal_url}/${ArticleId}/article?limit=${end}`;
+  return this.http.get(url).map(res => res.json());
+}
+
+
 
 getArticleByJournal(ArticleId : string)
 {
@@ -55,6 +61,13 @@ getArticleByJournal(ArticleId : string)
   console.log(url);
   return this.http.get(url).map(res => res.json());
 }
+
+
+getPartialArticleByJournal(ArticleId: string, start,end){
+  const url=`${this.articlebyjournal}/${ArticleId}/article?limit=${end}`;
+  return this.http.get(url).map(res => res.json());
+}
+
 
 private handleError(error: any): Promise<any>
 {

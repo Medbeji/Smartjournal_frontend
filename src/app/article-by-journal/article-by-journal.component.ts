@@ -11,6 +11,9 @@ declare var $:any;
 })
 export class ArticleByJournalComponent implements OnInit  {
   articles:any;
+  start = 10 ;
+  end = 20;
+
   constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router, private elRef: ElementRef)
   {
 
@@ -24,6 +27,20 @@ export class ArticleByJournalComponent implements OnInit  {
     this.route.params.switchMap((params:Params) => this.service.getArticleByJournal(params['_id']))
     .subscribe(data => this.articles = data);
     console.log(this.articles );
+  }
+
+
+  onScroll(){
+
+
+    this.route.params.switchMap((params:Params) => this.service.getPartialArticleByJournal(params['_id'],this.start,this.end)).subscribe(
+      data => {
+        this.articles = data;
+        this.start = this.start + 20 ;
+        this.end = this.end  + 20 ;
+      }
+    )
+
   }
 
 

@@ -9,6 +9,9 @@ import {ActivatedRoute,Params,Router} from '@angular/router';
 })
 export class ArticleByCategorieComponent implements OnInit {
 articles:any;
+start = 10 ;
+end = 20;
+
   constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router)
   { }
 
@@ -28,8 +31,14 @@ articles:any;
   }
 
   onScroll(){
-    
 
+    this.route.params.switchMap((params:Params) => this.service.getPartialArticleByCategorie(params['_id'],this.start,this.end)).subscribe(
+      data => {
+        this.articles = data;
+        this.start = this.start + 20 ;
+        this.end = this.end  + 20 ;
+      }
+    )
 
   }
 
