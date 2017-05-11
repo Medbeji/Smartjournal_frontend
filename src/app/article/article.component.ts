@@ -10,7 +10,7 @@ import {Article} from '../ModelBinding/article';
 })
 
 export class ArticleComponent implements OnInit {
-
+articlesbydate:any;
   articles: any;
   selectedArticleId: string = null;
   start = 10 ;
@@ -39,6 +39,7 @@ export class ArticleComponent implements OnInit {
 
   }
 
+
   onScroll(){
     console.log("number of scrolls"+this.numberOfScrolls);
 
@@ -64,10 +65,23 @@ export class ArticleComponent implements OnInit {
 
   }
 
+getArticlesByDate() {
+    console.log("Article from component Article");
+    this.articles = [] ;
+    this.service.getArticlesByDate().subscribe(
+      data => this.articlesbydate = data
+    );
+
+  }
 
   // this will switch between recent and top and reciproquement
-  switchArticles(){
-
+  switch(){
+  this.service.getArticlesByDate().subscribe(
+      data => this.articlesbydate = data
+    );
+  }
+ clear(){
+ this.articlesbydate= [];
   }
 
 

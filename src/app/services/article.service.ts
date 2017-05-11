@@ -10,6 +10,7 @@ export class ArticleService {
   similar_article_url:string="https://smartjournal.herokuapp.com/api/SimilarArticle/"
   articlebyjournal:string="https://smartjournal.herokuapp.com/api/journal";
   journal_url:string="https://smartjournal.herokuapp.com/api/categorie";
+    articleBydate_url:string="http://smartjournal.herokuapp.com/api/articleByDate";
   constructor(private http:Http) {
     this.http = http
   }
@@ -73,7 +74,11 @@ getSimilarArticles(ArticleId : string)
   return this.http.get(this.similar_article_url+ArticleId).map(res => res.json());
 }
 
-
+getArticlesByDate()
+{
+  console.log("Message from service article");
+  return this.http.get(this.articleBydate_url).map(res => res.json());
+}
 
 getArticleBlock(start,end){
   console.log("Hello from "+start+" To "+end);

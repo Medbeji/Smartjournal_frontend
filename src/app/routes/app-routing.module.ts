@@ -13,7 +13,8 @@ const routes: Routes = [
     { path: '', component: ArticleComponent },
     { path: 'detail/:_id', component: DetailArticleComponent },
     { path: 'journal/:_id', component: ArticleByJournalComponent },
-    { path: 'categorie/:_id', component: ArticleByCategorieComponent }, ]
+    { path: 'categorie/:_id', component: ArticleByCategorieComponent },
+  ]
   },
 
   { path: 'login',
