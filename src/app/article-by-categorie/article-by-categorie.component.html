@@ -1,6 +1,12 @@
 
 <div class="body">
             <div  style="position:relative;  margin:25% 0% 5% 5% ; z-index:4 ; ">
+                        <div class="search-results"
+                        infiniteScroll
+                        [infiniteScrollDistance]="0"
+                        [infiniteScrollThrottle]="500"
+
+                        (scrolled)="onScroll()" >
                         <div class="row row-margin-bottom"  >
                                     <div class="articles" *ngFor="let article of articles">
                                                 <div class="col-md-5 no-padding lib-item" data-category="view" >
@@ -18,8 +24,8 @@
                                                                                                             {{ article.Description }}
                                                                                                 </div>
                                                                                                 <div class="lib-row card-footer">
-                                                                                                      <small>Published in {{ article.Date |  date: 'dd/MM/yyyy' }}</small>
-                                                                                                      <button class="btn btn-info float-right btn-sm rightPosition" (click)="onSelect(article)" [routerLink]="['/detail', article._id]" >Read</button>
+                                                                                                            <small>Published in {{ article.Date |  date: 'dd/MM/yyyy' }}</small>
+                                                                                                            <button class="btn btn-info float-right btn-sm rightPosition" (click)="onSelect(article)" [routerLink]="['/detail', article._id]" >Read</button>
                                                                                                 </div>
                                                                                     </div>
 
@@ -30,4 +36,5 @@
                                     </div>
                         </div>
             </div>
+</div>
 </div>

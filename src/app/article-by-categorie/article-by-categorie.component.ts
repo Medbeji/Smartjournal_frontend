@@ -26,4 +26,13 @@ articles:any;
       .subscribe(data => this.articles = data);
 
   }
+
+  onScroll(){
+    
+
+
+  }
+
+
+
 }

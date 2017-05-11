@@ -43,7 +43,7 @@ z-index:5 ;
 
 .mycontainer{
   /*background-color: red;*/
-  background-color: #FDF3E7;
+  background-color: #f7f7f7;
   /*z-index: 5;*/
 }
 
@@ -51,7 +51,7 @@ z-index:5 ;
 .aricle-content {
   /*background-color: blue;*/
   z-index: 5;
-  height: 1500px ;
+  height: auto ;
   margin:0 auto;
 }
 

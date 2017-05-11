@@ -21,7 +21,6 @@ export class ArticleByJournalComponent implements OnInit  {
   getArticles() {
     console.log("Article from component ArticleByjournal");
     this.articles = [] ;
-
     this.route.params.switchMap((params:Params) => this.service.getArticleByJournal(params['_id']))
     .subscribe(data => this.articles = data);
     console.log(this.articles );
