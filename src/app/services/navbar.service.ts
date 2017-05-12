@@ -11,10 +11,8 @@ export class NavbarService {
   constructor(private http:Http) {
     this.http = http
    }
-   
+
 journal_url:string="http://smartjournal.herokuapp.com/api/journal";
-
-
 
   
   getjournaux()
@@ -22,7 +20,7 @@ journal_url:string="http://smartjournal.herokuapp.com/api/journal";
     console.log("Message from categorie service");
     return this.http.get(this.journal_url).map(res => res.json());
   }
-  
+
   getCategories()
   {
     console.log("Message from categorie service");

@@ -11,6 +11,7 @@ export class Article{
         _id: string,
         picture: string
     };
+    FullDescription : string;
     constructor(data) {
         Object.assign(this, data);
     }
