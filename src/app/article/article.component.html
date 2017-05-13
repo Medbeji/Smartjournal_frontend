@@ -19,7 +19,7 @@
       (scrolled)="onScroll()" >
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let article of articles" >
                   <div class="card card-inverse card-info">
-                        <img class="card-img-top" src="{{ article.Picture}}">
+                        <img class="card-img-top" style="height: 200px" src="{{ article.Picture}}">
                         <div class="card-block">
                                     <figure class="profile">
                                           <img src="{{ article._journal.picture }}" class="profile-avatar" alt="">
@@ -53,7 +53,7 @@
       (scrolled)="onScroll()" >
             <div class="col-sm-6 col-md-4 col-lg-3 mt-4" *ngFor="let article of articlesbydate" >
                   <div class="card card-inverse card-info">
-                        <img class="card-img-top" src="{{ article.Picture}}">
+                        <img class="card-img-top"  style="height: 200px" src="{{ article.Picture}}">
                         <div class="card-block">
                                     <figure class="profile">
                                           <img src="{{ article._journal.picture }}" class="profile-avatar" alt="">
