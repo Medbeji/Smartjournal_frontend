@@ -17,19 +17,11 @@ export class DetailArticleComponent implements OnInit {
   article:Article;
   journal: Journal;
   similarArticles: [Article];
+  
   constructor(private service: ArticleService,private route: ActivatedRoute, private router: Router,private fb: FacebookService)
   { }
 
-  login() {
-    this.fb.login()
-      .then((res: LoginResponse) => {
-        console.log('Logged in', res);
-      })
-      .catch(this.handleError);
-}
-  private handleError(error) {
-    console.error('Error processing action', error);
-}
+
   ngOnInit() :void {
     console.log("detail from datil componeent");
     this.route.params.switchMap((params:Params) => this.service.getArticle(params['_id']))
@@ -38,6 +30,10 @@ export class DetailArticleComponent implements OnInit {
     .subscribe(data => this.similarArticles = data);
     //this.route.params.switchMap((params:Params) => this.service.getjournalByArticle(params[this.article._journal])).subscribe((journal : Journal)=>this.journal = journal);
   }
+   selectedArticleId: string = null;
+onSelect(id){
 
+   this.router.navigate(['/detail/'+id]); 
+}
 
 }

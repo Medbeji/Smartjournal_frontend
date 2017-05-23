@@ -16,7 +16,7 @@
   <div class="mycontainer">
     <div class="row">
       <div class="col-md-8">
-        <button (click)="login()" class="btn btn-info">Login</button>
+    
         <div class="aricle-content">
    
           <article [routerLink]="['/detail', article._id]" *ngIf="article">
@@ -27,9 +27,9 @@
             <p class= "description" >{{ article.FullDescription }}</p>
          
             <a style="position:relative; top:1000%; margin-left: 85%; z-index:6 ;"  target="_blank" href="{{ article.Link}}">View Article</a>
-          
+                
           </article>
-          <div style="align-content: center" class="fb-comments" data-href="route.url" data-num-posts="4" data-width="100%"></div>
+    <div style="align-content: center" class="fb-comments" data-href="" data-num-posts="4" data-width="100%"></div>
         </div>
        
       </div>
@@ -57,7 +57,7 @@
                     <div class="desc">Lorem ipsum</div> -->
                   </div>
                   <div class="bottom">
-                    <button class="btn btn-default" (click)="onSelect(similarArticle)" [routerLink]="['detail', similarArticle._id]"> See Article</button>
+                    <button class="btn btn-default" [routerLink]="['/article/detail', similarArticle._id]"> See Article</button>
                   </div>
                 </div>
             <br>
