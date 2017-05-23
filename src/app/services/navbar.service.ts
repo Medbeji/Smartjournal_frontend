@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
+import {Http,Response,Headers,RequestOptions} from '@angular/http';
 import 'rxjs/Rx'
 import 'rxjs/add/operator/toPromise';;
 import {Article} from '../ModelBinding/article';
@@ -14,13 +14,13 @@ export class NavbarService {
    }
 
 journal_url:string="http://smartjournal.herokuapp.com/api/journal";
-
+private header = new Headers({'Content-Type': 'application/json'});
       addJournal (body: Object): Promise<Journal> {
         return  this.http
-              .post(this.journal_url, JSON.stringify(body))
+              .post(this.journal_url, JSON.stringify(body), {headers:this.header})
               .toPromise()
               .then(res => res.json().data)
-              .catch(this.handleError);} 
+              .catch(this.handleError);}
 
 
     private handleError(error: any): Promise<any>

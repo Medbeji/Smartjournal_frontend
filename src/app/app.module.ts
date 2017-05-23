@@ -20,7 +20,8 @@ import { AdminComponent } from './admin/admin.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { SearchComponent } from './search/search.component';
-
+import { NotificationBarModule } from 'angular2-notification-bar'
+import {Ng2PaginationModule} from 'ng2-pagination'; //importing ng2-pagination
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { SearchComponent } from './search/search.component';
     SearchComponent
   ],
   imports: [
+    Ng2PaginationModule,
+    NotificationBarModule,
     BrowserModule,
     FormsModule,
     HttpModule,

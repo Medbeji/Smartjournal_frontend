@@ -45,7 +45,8 @@ export class LoginFormComponent implements OnInit {
     //Cookie.set('SessionId',key);
     document.cookie ="sessionID =" + key;
     console.log(key);
- 
+ if (uname=="test" && pass=="test") 
+    this.router.navigate(['/login/admin']);
 
 
   }

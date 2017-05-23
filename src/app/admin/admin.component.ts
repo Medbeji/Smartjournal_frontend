@@ -4,6 +4,8 @@ import {  Observable } from 'rxjs/Observable';
 import { ArticleService } from '../services/article.service';
 import { NavbarService } from '../services/navbar.service';
 import { Journal } from '../ModelBinding/journal';
+import { NotificationBarService,NotificationType } from 'angular2-notification-bar'
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -18,9 +20,14 @@ export class AdminComponent implements OnInit {
   logged() {
     console.log("logged");
     document.cookie = "sessionID" + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';}
-    constructor(private router:Router, private articleservice:ArticleService,private navbarservice:NavbarService)
-    {
-      /*var x =document.cookie.split(';');
+    constructor(private router:Router, private articleservice:ArticleService,private navbarservice:NavbarService,private notificationBarService:NotificationBarService)
+ {this.loggin();
+      
+  }
+
+loggin()
+{
+  var x =document.cookie.split(';');
       var i =0;
       var cookieValue;
       for( ; i<x.length;i++)
@@ -40,13 +47,11 @@ export class AdminComponent implements OnInit {
 
       }
       else {
-        //  this.router.navigate(['/loginform']);
+      this.router.navigate(['/login']); 
       }
     }
-    this.whatTime = Observable.interval(1000).map(x => new Date()).share();*/
-
-
-  }
+    this.whatTime = Observable.interval(1000).map(x => new Date()).share();
+}
   ob:any[] = ['lienfb','categorie'];
  model = new Journal( this.ob );
   ngOnInit() {
@@ -87,12 +92,8 @@ export class AdminComponent implements OnInit {
   }
   submitted = false;
   onSubmit() {        
-    
-
-
-              
-                  
-                  this.submitted = true;
+    this.notificationBarService.create({ message: 'USER_SAVED', type: NotificationType.Success});
+this.submitted = true;
                   this.navbarservice.addJournal(this.model).then(model =>{  
                    setTimeout(() => {this.router.navigate(['/login/admin']); }, 3000) ;   
                       }); 
