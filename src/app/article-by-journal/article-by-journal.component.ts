@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { ArticleService } from '../services/article.service';
-import {ActivatedRoute,Params,Router} from '@angular/router';
+import {ActivatedRoute,Params,Router,NavigationEnd} from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -43,6 +43,10 @@ export class ArticleByJournalComponent implements OnInit  {
 
   }
 
+  showDetail(id:string){
+    console.log("Show detail for this one "+id);
+     this.router.navigate(['/detail', id]);
+  }
 
 
 }

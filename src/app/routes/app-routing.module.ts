@@ -29,7 +29,8 @@ const routes: Routes = [
   },
    {
       path:'search/:_id', component: SearchComponent
-   }
+   },
+   { path: 'detail/:_id', component: DetailArticleComponent }
 ];
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
