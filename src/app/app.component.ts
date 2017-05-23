@@ -3,7 +3,7 @@ import { AfterViewInit } from '@angular/core';
 import { PlatformLocation } from '@angular/common';
 
 
-import { FacebookService, FacebookInitParams } from 'ng2-facebook-sdk';
+import { FacebookService, InitParams } from 'ngx-facebook';
 declare var $:any;
 
 @Component({
@@ -23,15 +23,16 @@ export class AppComponent implements AfterViewInit {
 
 
 constructor(private fb: FacebookService) {
-	 let fbParams: FacebookInitParams = {
-                                   appId: '251566128622296',
-                                   xfbml: true,
-                                   version: 'v2.8'
-                                   };
-    this.fb.init(fbParams);
-
+ 
+    let initParams: InitParams = {
+      appId: '251566128622296',
+      xfbml: true,
+      version: 'v2.8'
+    };
+ 
+    fb.init(initParams);
+ 
   }
-
   ngAfterViewInit() {
 //Your jQuery code goes here
    $(document).ready(function() {

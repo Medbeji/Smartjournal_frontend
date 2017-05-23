@@ -20,11 +20,13 @@ export class AdminComponent implements OnInit {
    categories:any;
   logged() {
     console.log("logged");
-    document.cookie = "sessionID" + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';}
-    constructor(private router:Router, private articleservice:ArticleService,private navbarservice:NavbarService,private notificationBarService:NotificationBarService)
- {this.loggin();
-      
+   // document.cookie = "sessionID" + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = "sessionID= ; path=/login; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=localhost" ;
+    this.router.navigate(['/login']); 
   }
+
+    constructor(private router:Router, private articleservice:ArticleService,private navbarservice:NavbarService,private notificationBarService:NotificationBarService)
+ {this.loggin();  }
 
 loggin()
 {
@@ -40,16 +42,13 @@ loggin()
         }
       }
       console.log(cookieValue);
-      if (cookieValue ===undefined) {    this.router.navigate(['/login']); }
+      if (cookieValue ===undefined) {this.router.navigate(['/login']); }
       else
       {var res = atob(cookieValue).split('??');
       if(atob(res[0] )=='test'&& atob(res[1])=='test' )
-      {//admin
-
-      }
-      else {
+      { }
+      else 
       this.router.navigate(['/login']); 
-      }
     }
     this.whatTime = Observable.interval(1000).map(x => new Date()).share();
 }
@@ -112,9 +111,11 @@ categorieModel= new Categorie(this.ob1)
   }
   @Input()
  journal : Journal;
-DeleteJournal(journal:Journal)
-{ this.journal=journal;
-  this.navbarservice.deleteJournal(journal._id).then(()=> {
+DeleteJournal(journall:Journal)
+
+{ console.log("deleteeeeee");
+this.journal=journall;
+  this.navbarservice.deleteJournal(this.journal._id).then(()=> {
   this.notificationBarService.create({ message: 'Journal Deleted !', type: NotificationType.Info});
    }) ;
 }

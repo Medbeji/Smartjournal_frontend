@@ -10,7 +10,7 @@
                         <li class="pull-right">
                             <div id="reportrange" class="btn btn-danger btn-square date-picker">
                                 <div class="wrap">
-                                    <a href="#" class="logout" style="color:white;" >Logout</a>
+                                    <a (click)="logged()"  class="logout" style="color:white;" >Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -108,13 +108,13 @@
                                 <tbody *ngFor="let journal of journals | paginate: {itemsPerPage: 4, currentPage:page, id: '1'}; let i = index">
                                     <tr>
                                         <td class="hidden-xs">1</td>
-                                        <td>{{journal.lienFb}}</td>
+                                        <td WIDTH="20%">{{journal.lienFb}}</td>
                                         <!--<td>{{journal.picture}}</td>-->
                                           <td>{{journal.articles.length}}</td>
                                         <td align="center">
                                             <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-                                            <button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove-circle" 
-                                            (click)="DeleteJournal(journal)"
+                                            <button type="button"  (click)="DeleteJournal(journal)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove-circle" 
+                                           
                                             ></span> Delete</button>
                                         </td>
                                     </tr>                                                                 
@@ -216,7 +216,7 @@
                                 <tbody *ngFor="let categorie of categories| paginate: {itemsPerPage: 4, currentPage:page1, id1: '1'}; let j = index">
                                     <tr>
                                         <td class="hidden-xs">1</td>
-                                        <td>{{categorie.name}}</td>
+                                        <td WIDTH="20%">{{categorie.name}}</td>
                                     <td>{{categorie._journal.length}}</td>
                                         <td align="center">
                                             <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Edit</button>

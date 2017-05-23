@@ -19,7 +19,8 @@ private header = new Headers({'Content-Type': 'application/json'});
 
 
  deleteJournal(id: string): Promise<void> {
-  const url = `${this.journal_url}/${id}`;
+  const url = `${this.journal_url}/${id}/delete`;
+  console.log(url);
   return this.http.delete(url, {headers: this.header})
     .toPromise()
     .then(() => null)

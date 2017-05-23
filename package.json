@@ -27,6 +27,7 @@
     "ng-lazyload-image": "^3.1.1",
     "ng2-facebook-sdk": "^1.2.1",
     "ng2-pagination": "^2.0.1",
+    "ngx-facebook": "^2.4.0",
     "ngx-infinite-scroll": "^0.4.3",
     "rxjs": "^5.1.0",
     "zone.js": "^0.7.6"
