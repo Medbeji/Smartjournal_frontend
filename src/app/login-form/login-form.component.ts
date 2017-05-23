@@ -45,16 +45,23 @@ export class LoginFormComponent implements OnInit {
     //Cookie.set('SessionId',key);
     document.cookie ="sessionID =" + key;
     console.log(key);
-    if (uname =="test" && pass=="test")
-    {
-      this.router.navigate(['/login/admin']);
-    }
+ 
+
+
   }
 
   OnInit(){
 
   }
+
+  getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
   ngOnInit(){
+        if (this.getCookie("sessionID"))
+        this.router.navigate(['/login/admin']);
   }
 
 }

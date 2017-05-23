@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/Rx'
 import 'rxjs/add/operator/toPromise';;
-
+import {Article} from '../ModelBinding/article';
+import {Journal} from '../ModelBinding/journal';
 
 @Injectable()
 export class NavbarService {
@@ -14,7 +15,19 @@ export class NavbarService {
 
 journal_url:string="http://smartjournal.herokuapp.com/api/journal";
 
-  
+      addJournal (body: Object): Promise<Journal> {
+        return  this.http
+              .post(this.journal_url, JSON.stringify(body))
+              .toPromise()
+              .then(res => res.json().data)
+              .catch(this.handleError);} 
+
+
+    private handleError(error: any): Promise<any>
+{
+  console.error('An error occurred', error); // for demo purposes only
+  return Promise.reject(error.message || error);
+}
   getjournaux()
   {
     console.log("Message from categorie service");

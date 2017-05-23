@@ -19,26 +19,8 @@
             </div>
         </div>
         <div class="row" >
-            <div class="col-lg-2 col-sm-6">
-                <div class="circle-tile">
-                    <a href="#">
-                        <div class="circle-tile-heading dark-blue">
-                            <i class="fa fa-users fa-fw fa-3x"></i>
-                        </div>
-                    </a>
-                    <div class="circle-tile-content dark-blue">
-                        <div class="circle-tile-description text-faded">
-                            Users
-                        </div>
-                        <div class="circle-tile-number text-faded">
-                            265
-                            <span id="sparklineA"></span>
-                        </div>
-                        <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-6">
+           
+            <div class="col-lg-2 col-sm-3">
                 <div class="circle-tile">
                     <a href="#">
                         <div class="circle-tile-heading green">
@@ -47,34 +29,17 @@
                     </a>
                     <div class="circle-tile-content green">
                         <div class="circle-tile-description text-faded">
-                            Revenue
+                            Articles
                         </div>
                         <div class="circle-tile-number text-faded">
-                            $32,384
+                            {{articles.length}}
                         </div>
                         <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-6">
-                <div class="circle-tile">
-                    <a href="#">
-                        <div class="circle-tile-heading orange">
-                            <i class="fa fa-bell fa-fw fa-3x"></i>
-                        </div>
-                    </a>
-                    <div class="circle-tile-content orange">
-                        <div class="circle-tile-description text-faded">
-                            Alerts
-                        </div>
-                        <div class="circle-tile-number text-faded">
-                            9 New
-                        </div>
-                        <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-6">
+
+            <div class="col-lg-2 col-sm-3">
                 <div class="circle-tile">
                     <a href="#">
                         <div class="circle-tile-heading blue">
@@ -83,17 +48,17 @@
                     </a>
                     <div class="circle-tile-content blue">
                         <div class="circle-tile-description text-faded">
-                            Tasks
+                            Journaux
                         </div>
                         <div class="circle-tile-number text-faded">
-                            10
+                          {{journals.length}}
                             <span id="sparklineB"></span>
                         </div>
                         <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-sm-6">
+            <div class="col-lg-2 col-sm-3">
                 <div class="circle-tile">
                     <a href="#">
                         <div class="circle-tile-heading red">
@@ -102,30 +67,11 @@
                     </a>
                     <div class="circle-tile-content red">
                         <div class="circle-tile-description text-faded">
-                            Orders
+                            Categories
                         </div>
                         <div class="circle-tile-number text-faded">
-                            24
+                          {{categories.length}}
                             <span id="sparklineC"></span>
-                        </div>
-                        <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2 col-sm-6">
-                <div class="circle-tile">
-                    <a href="#">
-                        <div class="circle-tile-heading purple">
-                            <i class="fa fa-comments fa-fw fa-3x"></i>
-                        </div>
-                    </a>
-                    <div class="circle-tile-content purple">
-                        <div class="circle-tile-description text-faded">
-                            Mentions
-                        </div>
-                        <div class="circle-tile-number text-faded">
-                            96
-                            <span id="sparklineD"></span>
                         </div>
                         <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
                     </div>
@@ -237,37 +183,52 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <div class="col-md-6">
                     <div class="newArticle">
                             <div class="well-block">
                                 <div class="well-title">
                                     <h2>ADD NEW JOURNAL</h2>
                                 </div>
-                                <form>
+                                <form #journalForm="ngForm" (ngSubmit)="onSubmit()">
                                     <!-- Form start -->
                                     <div class="row">
 
                                         <!-- Text input-->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="control-label" for="email">Facebook ID</label>
-                                                <input id="email" name="email" type="text" placeholder="Facebook ID" class="form-control input-md">
-                                            </div>
+                                                <label class="control-label" for="lienFb">Facebook ID</label>
+                                                <input type="text" placeholder="Url Facebook"  class="form-control" pattern="https?://.+" id="lienFb" required
+                                                [(ngModel)]="model.lienFb" name="lienFb" #lienFb="ngModel"
+                                                >
+                                                <div *ngIf="lienFb.errors && (lienFb.dirty || lienFb.touched)" class="alert alert-danger">
+                                                <div [hidden]="!lienFb.errors.required">
+                                                     URL is required!
+                                                    </div>
+                                                <div [hidden]="!lienFb.errors.pattern">
+                                                  Must be a valid URL!
+                                                </div>
+                                                  </div>
+                                                
+                                                </div>
                                         </div>
                                         <!-- Text input-->
 
                                         <!-- Select Basic -->
                                         <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="control-label" for="time">Categorie</label>
-                                                <select id="time" name="time" class="form-control">
-                                                    <option value="Categorie#">Categorie#</option>
-                                                    <option value="Categorie#">Categorie#</option>
-                                                    <option value="Categorie#">Categorie#</option>
+                                            <div class="form-group"  id="time">
+                                                <label class="control-label" for="_categorie">Categorie</label>
+                                                <select class="form-control"  id="_categorie"  required placeholder="categorie"
+                                                [(ngModel)]="model._categorie" name="_categorie"
+                                                #categorie="ngModel">
+                                                    <option  *ngFor="let categorie of categories" value="categorie">{{categorie.name}}</option>
+                                        
                                                 </select>
                                             </div>
                                         </div>
-                                        <!-- Select Basic -->
+                                        <!-- Select Basic 
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="control-label" for="appointmentfor">Journal</label>
@@ -278,17 +239,18 @@
                                                     <option value="Journal#">Journal#</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <!-- Button -->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <button id="singlebutton" name="singlebutton" class="btn btn-default">ADD ARTICLE</button>
+                                                <button type="submit" class="btn btn-success" [disabled]="!journalForm.form.valid">ADD JOURNAL</button>
                                             </div>
                                         </div>
                                     </div>
                                 </form>
                                 <!-- form end -->
                         </div>
+                       
                     </div>
                 </div>
                 <div class="col-md-6">
