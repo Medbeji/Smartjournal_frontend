@@ -18,6 +18,7 @@ import { ArticleByCategorieComponent } from './article-by-categorie/article-by-c
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     FormsModule,
     HttpModule,
 	AppRoutingModule,
-  InfiniteScrollModule
+  InfiniteScrollModule,
+  LazyLoadImageModule
   ],
   providers: [FacebookService,ArticleService,NavbarService],
   bootstrap: [AppComponent]

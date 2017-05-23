@@ -1,4 +1,4 @@
-import { Component, OnInit , ViewChild } from '@angular/core';
+import { Component, OnInit , ViewChild , } from '@angular/core';
 import { ArticleService } from '.././services/article.service';
 import {Router} from '@angular/router';
 import {Article} from '../ModelBinding/article';
@@ -7,9 +7,15 @@ import {Article} from '../ModelBinding/article';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css'],
   providers: [ArticleService]
+
 })
 
 export class ArticleComponent implements OnInit {
+
+    defaultImage = '../assets/loadinglogo.png';
+    offset = 100;
+
+
   articlesbydate:any;
   articles: any;
   selectedArticleId: string = null;
