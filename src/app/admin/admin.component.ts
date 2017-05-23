@@ -1,9 +1,10 @@
-import { Component, Pipe,OnInit  } from '@angular/core';
+import { Component, Pipe,OnInit,Input  } from '@angular/core';
 import {ActivatedRoute,Params,Router} from '@angular/router';
 import {  Observable } from 'rxjs/Observable';
 import { ArticleService } from '../services/article.service';
 import { NavbarService } from '../services/navbar.service';
 import { Journal } from '../ModelBinding/journal';
+import { Categorie } from '../ModelBinding/categorie';
 import { NotificationBarService,NotificationType } from 'angular2-notification-bar'
 
 @Component({
@@ -54,6 +55,9 @@ loggin()
 }
   ob:any[] = ['lienfb','categorie'];
  model = new Journal( this.ob );
+  ob1:any[] = ['categorie','categorie'];
+categorieModel= new Categorie(this.ob1)
+
   ngOnInit() {
     console.log("hi admin");
     this.getArticles();
@@ -90,14 +94,28 @@ loggin()
       data => this.categories = data
     ); 
   }
-  submitted = false;
+
   onSubmit() {        
-    this.notificationBarService.create({ message: 'USER_SAVED', type: NotificationType.Success});
-this.submitted = true;
+    this.notificationBarService.create({ message: 'Journal Added !', type: NotificationType.Success});
+
                   this.navbarservice.addJournal(this.model).then(model =>{  
                    setTimeout(() => {this.router.navigate(['/login/admin']); }, 3000) ;   
                       }); 
           
   }
 
+  onSubmitCategorie(){
+    this.notificationBarService.create({ message: 'Categorie Added !', type: NotificationType.Success});
+     this.navbarservice.addCategorie(this.categorieModel).then(model =>{  
+                   setTimeout(() => {this.router.navigate(['/login/admin']); }, 3000) ;   
+                      }); 
+  }
+  @Input()
+ journal : Journal;
+DeleteJournal(journal:Journal)
+{ this.journal=journal;
+  this.navbarservice.deleteJournal(journal._id).then(()=> {
+  this.notificationBarService.create({ message: 'Journal Deleted !', type: NotificationType.Info});
+   }) ;
+}
 }

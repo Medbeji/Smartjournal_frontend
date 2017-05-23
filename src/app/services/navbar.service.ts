@@ -4,24 +4,42 @@ import 'rxjs/Rx'
 import 'rxjs/add/operator/toPromise';;
 import {Article} from '../ModelBinding/article';
 import {Journal} from '../ModelBinding/journal';
+import {Categorie} from '../ModelBinding/categorie';
 
 @Injectable()
 export class NavbarService {
   endpoint_url:string="http://smartjournal.herokuapp.com/api/categorie";
-
+journal_url:string="http://smartjournal.herokuapp.com/api/journal";
   constructor(private http:Http) {
     this.http = http
    }
 
-journal_url:string="http://smartjournal.herokuapp.com/api/journal";
+
 private header = new Headers({'Content-Type': 'application/json'});
+
+
+ deleteJournal(id: string): Promise<void> {
+  const url = `${this.journal_url}/${id}`;
+  return this.http.delete(url, {headers: this.header})
+    .toPromise()
+    .then(() => null)
+    .catch(this.handleError);
+  }
+    
       addJournal (body: Object): Promise<Journal> {
         return  this.http
               .post(this.journal_url, JSON.stringify(body), {headers:this.header})
               .toPromise()
               .then(res => res.json().data)
-              .catch(this.handleError);}
-
+              .catch(this.handleError);
+            }
+addCategorie(body: Object): Promise<Categorie>{
+  return  this.http
+              .post(this.endpoint_url, JSON.stringify(body), {headers:this.header})
+              .toPromise()
+              .then(res => res.json().data)
+              .catch(this.handleError);
+}
 
     private handleError(error: any): Promise<any>
 {
