@@ -4,6 +4,7 @@ import {Article} from '../ModelBinding/article';
 import {ActivatedRoute,Params,Router} from '@angular/router';
 import {Journal} from '../ModelBinding/journal';
 import 'rxjs/add/operator/switchMap';
+
 @Component({
   selector: 'app-detail-article',
   templateUrl: './detail-article.component.html',

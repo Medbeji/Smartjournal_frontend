@@ -19,6 +19,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -30,15 +31,16 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
     ArticleByJournalComponent,
     ArticleByCategorieComponent,
     LoginFormComponent,
-    AdminComponent
+    AdminComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-	AppRoutingModule,
-  InfiniteScrollModule,
-  LazyLoadImageModule
+  	AppRoutingModule,
+    InfiniteScrollModule,
+    LazyLoadImageModule
   ],
   providers: [FacebookService,ArticleService,NavbarService],
   bootstrap: [AppComponent]

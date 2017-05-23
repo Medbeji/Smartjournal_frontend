@@ -2,8 +2,11 @@
     <section class="border" >
       <!--<button [routerLink]="['byDate']" >Recent Articles</button>
   <a routerLink="/article">      <button class="hover"  >Top Articles</button></a>-->
-       <button  (click)="switch()">Recent Articles</button>
-    <button class="hover" (click)="clear()" >Top Articles</button>
+
+    <button  (click)="clear()" [class.hover]='!isRecentArticles'>Top Articles</button>
+    <button  (click)="switch()" [class.hover]='isRecentArticles' >Recent Articles</button>
+    
+    
   </section>
 <div>
 

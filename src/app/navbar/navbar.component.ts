@@ -16,6 +16,9 @@ export class NavbarComponent implements OnInit {
   private sub: boolean;
   categories: any;
   journals: any;
+  searchStr: string = "" 
+
+
   constructor(location: Location, private service: NavbarService,private route: Router, private ARoute:ActivatedRoute) {
     route.events.subscribe((val) => {
       if(location.path() != '/login'){
@@ -57,5 +60,12 @@ export class NavbarComponent implements OnInit {
     return(this.sub);
   }
 
-
+  searchArticle(){ 
+    console.log("show search result for "+this.searchStr);
+    this.route.navigate(['/search', this.searchStr]);
+  }
+  
+  showSuggestions(){
+    console.log("suggestions for "+this.searchStr);
+  }
 }

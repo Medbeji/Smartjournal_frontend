@@ -13,8 +13,7 @@ import {Article} from '../ModelBinding/article';
 export class ArticleComponent implements OnInit {
 
     defaultImage = '../assets/loadinglogo.png';
-    offset = 100;
-
+    offset = 300;
 
   articlesbydate:any;
   articles: any;

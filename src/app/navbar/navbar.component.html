@@ -32,11 +32,11 @@
                                                 <div class="col-sm-4 col-md-4 pull-right" style="margin-top:10px">
                                                             <form >
                                                                            <div class="input-group">
-                                                                              <input type="text" class="form-control input-search" placeholder="Search for specific article">
+                                                                              <input type="text" class="form-control input-search" placeholder="Search for specific article" (keyup)="showSuggestions()" [(ngModel)]="searchStr" name="searchStr">
                                                                               <span class="input-group-btn">
-                                                                                <button class="btn btn-search" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                                                                                <button class="btn btn-search" type="button"><i class="glyphicon glyphicon-search" (click)="searchArticle()"></i></button>
                                                                               </span>
-                                                                            </div><!-- /input-group -->
+                                                                            </div>
                                                               </form>
                                                 </div>
                                         </div>

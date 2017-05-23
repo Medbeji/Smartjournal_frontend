@@ -4,13 +4,17 @@ import 'rxjs/Rx'
 import 'rxjs/add/operator/toPromise';;
 import {Article} from '../ModelBinding/article';
 import {Journal} from '../ModelBinding/journal';
+
 @Injectable()
 export class ArticleService {
-  endpoint_url:string="http://smartjournal.herokuapp.com/api/article";
-  similar_article_url:string="https://smartjournal.herokuapp.com/api/SimilarArticle/"
-  articlebyjournal:string="https://smartjournal.herokuapp.com/api/journal";
-  journal_url:string="https://smartjournal.herokuapp.com/api/categorie";
-    articleBydate_url:string="http://smartjournal.herokuapp.com/api/articleByDate";
+
+  endpoint_url:string= "http://smartjournal.herokuapp.com/api/article";
+  similar_article_url:string= "https://smartjournal.herokuapp.com/api/SimilarArticle/"
+  articlebyjournal:string= "https://smartjournal.herokuapp.com/api/journal";
+  journal_url:string= "https://smartjournal.herokuapp.com/api/categorie";
+  articleBydate_url:string= "http://smartjournal.herokuapp.com/api/articleByDate";
+
+
   constructor(private http:Http) {
     this.http = http
   }
@@ -37,10 +41,6 @@ getArticle(ArticleId : string):Promise<Article>
   catch(this.handleError);
 }
 
-
-
-
-
 getArticleByCategorie(ArticleId : string)
 {
   const url=`${this.journal_url}/${ArticleId}/article`;
@@ -52,7 +52,6 @@ getPartialArticleByCategorie(ArticleId: string, start,end){
   const url=`${this.journal_url}/${ArticleId}/article?limit=${end}`;
   return this.http.get(url).map(res => res.json());
 }
-
 
 
 getArticleByJournal(ArticleId : string)
