@@ -2,6 +2,8 @@
 	<div class="row">
         <h3>Search Results</h3>
         <p class="lead"><strong class="text-primary">{{ numberOfSearchResult }}</strong> results for <strong class="text-primary">{{ keyword }}</strong></p>
-        <div style="border-top: 1px solid black;"></div>
+        <div style="border-top: 1px solid black;"
+        *ngFor="let article of articles">
+         {{article.name}}</div>
 	</div>
 </div>

@@ -26,7 +26,16 @@ private header = new Headers({'Content-Type': 'application/json'});
     .then(() => null)
     .catch(this.handleError);
   }
-    
+
+  deleteCategorie(id: string): Promise<void> {
+  const url = `${this.endpoint_url}/${id}`;
+  console.log(url);
+  return this.http.delete(url, {headers: this.header})
+    .toPromise()
+    .then(() => null)
+    .catch(this.handleError);
+  }
+
       addJournal (body: Object): Promise<Journal> {
         return  this.http
               .post(this.journal_url, JSON.stringify(body), {headers:this.header})

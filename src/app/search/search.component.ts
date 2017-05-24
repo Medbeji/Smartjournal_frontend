@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
 
   keyword:string ; 
   numberOfSearchResult: number = 10;
+  articles:any;
 
   constructor(private service: SearchService,private route: ActivatedRoute, private router: Router) { 
 
@@ -22,12 +23,16 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
        this.keyword = params['_id'];
-
-        // here call service to get search result 
-        
-
-    });
-    
+       this.service.findByKeywords(this.keyword).subscribe(
+      data => this.articles = data
+    );
+        // here call service to get search result      
+    });    
   }
+
+getArticles(keyword)
+{this.service.findByKeywords(keyword).subscribe(
+      data => this.articles = data
+    );}
 
 }

@@ -7,7 +7,7 @@ import {Article} from '../ModelBinding/article';
 @Injectable()
 export class SearchService {
 
-  searchUrl:string = "http://smartjournal.herokuapp.com/api/article" ; 
+  searchUrl:string = "http://smartjournal.herokuapp.com/api/search?q=" ; 
 
 
  constructor(private http:Http) {
@@ -15,7 +15,8 @@ export class SearchService {
   }
 
   findByKeywords(keyword: string){
-    return this.http.get(this.searchUrl).map(res => res.json());
+     const url = `${this.searchUrl}/${keyword}`;
+    return this.http.get(url).map(res => res.json());
   }
 
 }

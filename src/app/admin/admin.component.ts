@@ -119,4 +119,18 @@ this.journal=journall;
   this.notificationBarService.create({ message: 'Journal Deleted !', type: NotificationType.Info});
    }) ;
 }
+
+  @Input()
+ categ : Categorie;
+DeleteCategorie(categorie:Categorie)
+
+{ console.log("deleteeeeee");
+this.categ=categorie;
+  this.navbarservice.deleteCategorie(categorie._id).then(()=> {
+  this.notificationBarService.create({ message: 'Journal Deleted !', type: NotificationType.Info});
+   }) ;
+}
+
+
+
 }

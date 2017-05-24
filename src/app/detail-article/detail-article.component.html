@@ -20,18 +20,18 @@
         <div class="aricle-content">
    
           <article [routerLink]="['/detail', article._id]" *ngIf="article">
-            <h1 >{{ article.name }}</h1>
+            <h1 style="font-size: 30px" >{{ article.name }}</h1>
             <br>
             <img  class="img-thumbnail" src="{{ article.Picture }}" alt="ALT">
-            <p class= "description" >{{ article.Description }}</p>
-            <p class= "description" >{{ article.FullDescription }}</p>
+            <p class= "description" style="font-size: 16px" >{{ article.Description }}</p>
+            <p class= "description" style="font-size: 16px">{{ article.FullDescription }}</p>
          
             <a style="position:relative; top:1000%; margin-left: 85%; z-index:6 ;"  target="_blank" href="{{ article.Link}}">View Article</a>
                 
           </article>
-    <div style="align-content: center" class="fb-comments" data-href="" data-num-posts="4" data-width="100%"></div>
+      
         </div>
-       
+          <div style="align-content: center" class="fb-comments" data-href="" data-num-posts="4" data-width="100%"></div>
       </div>
        <div class="col-md-1">  
           <div class="verticalLine">
